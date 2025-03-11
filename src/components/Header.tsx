@@ -1,17 +1,17 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Download, Github, Moon, Sun } from "lucide-react";
-
 interface HeaderProps {
   onExport: () => void;
   toggleTheme: () => void;
   isDarkMode: boolean;
 }
-
-const Header: React.FC<HeaderProps> = ({ onExport, toggleTheme, isDarkMode }) => {
-  return (
-    <header className="w-full py-4 px-6 border-b border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm bg-white/50 dark:bg-black/30 animate-fade-in">
+const Header: React.FC<HeaderProps> = ({
+  onExport,
+  toggleTheme,
+  isDarkMode
+}) => {
+  return <header className="w-full py-4 px-6 border-b border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm bg-white/50 dark:bg-black/30 animate-fade-in">
       <div className="container max-w-full flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="h-8 w-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-semibold">M</div>
@@ -31,15 +31,10 @@ const Header: React.FC<HeaderProps> = ({ onExport, toggleTheme, isDarkMode }) =>
             Export
           </Button>
           <Button variant="outline" size="sm" className="glass-button" asChild>
-            <a href="https://github.com" target="_blank" rel="noreferrer">
-              <Github size={16} className="mr-2" />
-              GitHub
-            </a>
+            
           </Button>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
