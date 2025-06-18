@@ -1,69 +1,167 @@
-# Welcome to your Lovable project
+# 🚀 Mindmap Generator AI
 
-## Project info
+**Mindmap Generator AI** is an open-source tool that transforms plain text documents into structured, visual mindmaps using AI — ideal for brainstorming, note-taking, and learning.
 
-**URL**: https://lovable.dev/projects/e751f4c0-8ecf-4b68-92d9-99805a66e66e
+---
 
-## How can I edit this code?
+## 📘 Table of Contents
 
-There are several ways of editing your application.
+* [Features](#features)
+* [Demo](#demo)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Configuration](#configuration)
+* [Architecture](#architecture)
+* [Development](#development)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e751f4c0-8ecf-4b68-92d9-99805a66e66e) and start prompting.
+## ⚙️ Features
 
-Changes made via Lovable will be committed automatically to this repo.
+* AI-powered parsing of text into hierarchical concepts
+* Export mindmaps as JSON / Markdown / visual image
+* CLI interface + optional web frontend
+* Customizable via config file or command-line flags
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🎥 Demo
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🔗 *Insert link to demo GIF, image, or hosted app*
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🛠️ Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Prerequisites
 
-# Step 3: Install the necessary dependencies.
-npm i
+* Python 3.8+
+* Node.js (if frontend/UI included)
+* (Optional) Virtualenv or Conda
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Setup
+
+```bash
+git clone https://github.com/vchaitanyachowdari/mindmap-generator-ai.git
+cd mindmap-generator-ai
+
+# (Optional) create a virtual environment
+python -m venv .venv && source .venv/bin/activate
+
+pip install -r requirements.txt
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🚀 Usage
 
-**Use GitHub Codespaces**
+### CLI
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+python generate_mindmap.py \
+  --input path/to/input.txt \
+  --output mindmap.json \
+  --format json \
+  --model gpt-3.5-turbo \
+  # other flags...
+```
 
-## What technologies are used for this project?
+### Programmatic
 
-This project is built with .
+```python
+from mindmap import generate
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+mindmap = generate(
+    text="Your input text here...",
+    model="gpt-3.5-turbo",
+    max_depth=4
+)
+print(mindmap)
+```
 
-## How can I deploy this project?
+### Web UI (If available)
 
-Simply open [Lovable](https://lovable.dev/projects/e751f4c0-8ecf-4b68-92d9-99805a66e66e) and click on Share -> Publish.
+```bash
+cd ui
+npm install
+npm run dev
+# then open http://localhost:3000
+```
 
-## I want to use a custom domain - is that possible?
+---
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+## ⚙️ Configuration
+
+| Setting          | Description            | Default           |
+| ---------------- | ---------------------- | ----------------- |
+| `model`          | OpenAI model to use    | `gpt-3.5-turbo`   |
+| `max_depth`      | Maximum mindmap depth  | `3`               |
+| `output_format`  | `json`, `md`, or `png` | `json`            |
+| `openai_api_key` | Your OpenAI API key    | *None (required)* |
+
+You can pass these via flags, config file, or environment variables.
+
+---
+
+## 🧱 Architecture
+
+1. **Text Processor** – splits and categorizes input text.
+2. **AI Module** – prompts OpenAI to extract nodes and hierarchy.
+3. **Formatter** – converts raw output to JSON, Markdown, and optionally HTML/SVG.
+4. **CLI / UI** – user entrypoints.
+
+---
+
+## 💻 Development
+
+### Setup
+
+```bash
+# Already installed dependencies above
+```
+
+### Run tests
+
+```bash
+pytest
+```
+
+### Linting
+
+```bash
+flake8 .
+black .
+```
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/foo`)
+3. Commit your changes (`git commit -am 'Add foo'`)
+4. Push to your branch (`git push origin feature/foo`)
+5. Open a pull request
+
+✅ Please follow the [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+
+---
+
+## 📞 Contact
+
+Created by **vchaitanyachowdari**
+Feel free to reach out at: [GitHub Issues](https://github.com/vchaitanyachowdari/mindmap-generator-ai/issues)
+
+Enjoy building mindmaps! 🎉
+
